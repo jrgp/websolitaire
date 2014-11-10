@@ -130,37 +130,35 @@ function Ui () {
    */
 
   var configDropHandle = (function(my, dest, j) {
-      $('#'+dest+(j + 1)).droppable({
-        accept: '.card',
-        hoverClass: 'dropping',
-        drop: _.bind(function(e, ui) {
-          
-          var element = ui.draggable;
+    $('#'+dest+(j + 1)).droppable({
+      accept: '.card',
+      hoverClass: 'dropping',
+      drop: function(e, ui) {
 
-          var card = element.data('card');
-          var source = element.data('source');
-          var sourceIndex = element.data('sourceindex');
-          var cardIndex = element.data('cardindex');
+        var element = ui.draggable;
+        var card = element.data('card');
+        var source = element.data('source');
+        var sourceIndex = element.data('sourceindex');
+        var cardIndex = element.data('cardindex');
 
-          if (my.game[dest+'s'][j].add(card)) {
-            my.game[source][sourceIndex].cards.splice(cardIndex, 1);
+        if (my.game[dest+'s'][j].add(card)) {
+          my.game[source][sourceIndex].cards.splice(cardIndex, 1);
 
-            ui.draggable.draggable('option', 'revert', false);
-            ui.draggable.draggable('disable');
+          ui.draggable.draggable('option', 'revert', false);
+          ui.draggable.draggable('disable');
 
-            if (source == 'deck') {
-              this.visibleDeckCard--;
-              console.log('came from deck')
-            }
-
-            my.redraw();
+          if (source == 'deck') {
+            this.visibleDeckCard--;
           }
-          else {
-            console.log('Invalid move.')
-          }
-        }, this)
-      })
+
+          my.redraw();
+        }
+        else {
+          console.log('Invalid move.')
+        }
+      }
     })
+  })
 
   // Slots at top
   for (var i = 0; i < 4; i++) {
