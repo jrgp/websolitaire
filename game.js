@@ -82,11 +82,11 @@ function Game() {
   }
 
   Card.prototype.greaterThan = function (othercard) {
-    return this.getWeight() > othercard.getWeight();
+    return this.getWeight() > othercard.getWeight() && this.getWeight() - othercard.getWeight() == 1;
   }
 
   Card.prototype.lessThan = function (othercard) {
-    return this.getWeight() < othercard.getWeight();
+    return this.getWeight() < othercard.getWeight() && othercard.getWeight() - this.getWeight() == 1;
   }
 
   Card.prototype.getColor = function() {
@@ -113,7 +113,7 @@ function Game() {
    */
   this.restart = function() {
     this.cards = [];
-    this.deck = [];
+    this.deck = [new Slot('deck')];
     this.slots = [];
     this.stacks = []
 
@@ -151,7 +151,7 @@ function Game() {
     // Stuff remaining ones into front deck
     var card;
     while ((card = this.cards.shift()) != undefined) {
-      this.deck.push(card)
+      this.deck[0].cards.push(card)
     }
   }
 }

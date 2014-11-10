@@ -51,7 +51,8 @@ function Ui () {
       div.draggable({
         containment: '#content',
         cursor: 'grab',
-        revert: true
+        revert: true,
+        stack: '.card'
       });
       div.data('card', card)
     }
@@ -100,8 +101,12 @@ function Ui () {
     $('#boxcover').append(this.drawCard({type: 'boxcover'}))
 
     $('#hand').empty()
-    if (this.visibleDeckCard > -1 && this.visibleDeckCard < this.game.deck.length) {
-      $('#hand').append(this.drawCard(this.game.deck[this.visibleDeckCard], 0, true));
+    if (this.visibleDeckCard > -1 && this.visibleDeckCard < this.game.deck[0].cards.length) {
+      var element = this.drawCard(this.game.deck[0].cards[this.visibleDeckCard], 0, true);
+        element.data('source', 'deck');
+        element.data('sourceindex', 0);
+        element.data('cardindex', this.visibleDeckCard);
+      $('#hand').append(element);
     }
 
   }
@@ -111,7 +116,7 @@ function Ui () {
    */
   $('#boxcover').click(_.bind(function() {
     var next = this.visibleDeckCard + 1;
-    if (next > -1 && next < this.game.deck.length)
+    if (next > -1 && next < this.game.deck[0].cards.length)
       this.visibleDeckCard = next;
     else {
       this.visibleDeckCard = -1;
@@ -144,6 +149,7 @@ function Ui () {
             ui.draggable.draggable('disable');
 
             if (source == 'deck') {
+              this.visibleDeckCard--;
               console.log('came from deck')
             }
 
