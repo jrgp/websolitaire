@@ -76,11 +76,12 @@ function Ui () {
       var cards = this.game.stacks[i].cards;
       var stackwrapper = $('#stack'+(i+1));
       for (var j = 0; j < cards.length; j++) {
-        var element = this.drawCard(cards[j], j, j == cards.length - 1);
-        element.data('source', 'stacks');
-        element.data('sourceindex', i);
-        element.data('cardindex', j);
-        stackwrapper.append(element)
+        stackwrapper.append(
+          this.drawCard(cards[j], j, j == cards.length - 1)
+            .data('source', 'stacks')
+            .data('sourceindex', i)
+            .data('cardindex', j)
+        );
       }
     }
 
@@ -89,11 +90,12 @@ function Ui () {
       var cards = this.game.slots[i].cards;
       var slotwrapper = $('#slot'+(i+1));
       for (var j = 0; j < cards.length; j++) {
-        var element = this.drawCard(cards[j], j, j == cards.length - 1);
-        element.data('source', 'slots');
-        element.data('sourceindex', i);
-        element.data('cardindex', j);
-        slotwrapper.append(element)
+        slotwrapper.append(
+          this.drawCard(cards[j], j, j == cards.length - 1)
+            .data('source', 'slots')
+            .data('sourceindex', i)
+            .data('cardindex', j)
+        );
       }
     }
 
@@ -102,11 +104,12 @@ function Ui () {
 
     $('#hand').empty()
     if (this.visibleDeckCard > -1 && this.visibleDeckCard < this.game.deck[0].cards.length) {
-      var element = this.drawCard(this.game.deck[0].cards[this.visibleDeckCard], 0, true);
-        element.data('source', 'deck');
-        element.data('sourceindex', 0);
-        element.data('cardindex', this.visibleDeckCard);
-      $('#hand').append(element);
+      $('#hand').append(
+        this.drawCard(this.game.deck[0].cards[this.visibleDeckCard], 0, true)
+          .data('source', 'deck')
+          .data('sourceindex', 0)
+          .data('cardindex', this.visibleDeckCard)
+      );
     }
 
   }
