@@ -1,0 +1,85 @@
+body {
+}
+
+/*
+ * Layout
+ */
+
+#btns {
+  margin-top: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#game {
+  width: 750px;
+  border: #000 1px solid;
+  overflow: hidden;
+  margin: auto;
+  position: relative;
+  height: 300px;
+}
+
+#deck {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+}
+
+#stacks {
+  position: absolute;
+  left: 5px;
+  bottom: 0px;
+}
+
+#slots {
+  position: absolute;
+  top: 10px;
+  right: 22px;
+}
+
+#stacks > div, #slots > div, #boxcover, #hand {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 120px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #ddd;
+}
+
+
+
+/*
+ * Card foo
+ */
+
+.card {
+  font-size: 120px;
+  float: left;
+  background-color: #fff;
+  text-align: center;
+  position: absolute;
+  width: 85px;
+  height: 105px;
+  font-family: monospace;
+  border: #000 1px solid;
+  cursor: default;
+  z-index: 9001;
+}
+
+.spades, .clubs {
+  color: black;
+}
+
+.diamonds, .hearts {
+  color: #dd0000;
+}
+
+.card.spades:hover, .card.clubs:hover {
+  color: #666;
+}
+
+.card.diamonds:hover, .card.hearts:hover {
+  color: #ff0000;
+}

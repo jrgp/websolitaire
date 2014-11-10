@@ -1,0 +1,19 @@
+
+I felt like making an implementation of Windows solitaire in JS
+to test my coding ability as a fun challenge.
+
+Requirements:
+
+- Modern-ish web browser
+- Web browser with font that supports cards in unicode
+
+Only tested on Mac yosemite so the card fonts might look horribly 
+messed up on other systems.
+
+All game logic/algorithms and UI code written by me, except the 
+sugar/jquery/underscore JS libraries I used for convenience.
+
+I license this under BSD. Do whatever you want with this code, but 
+say you got it from me.
+
+WebSolitaire (c) 2014 Joe Gillotti

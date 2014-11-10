@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="sugar.min.js"></script>
+  <script src="underscore-min.js"></script>
+  <script src="jquery-2.1.1.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <script src="game.js"></script>
+  <script src="ui.js"></script>
+  <link href="game.css" type="text/css" rel="stylesheet">
+  <title>Solitaire</title>
+</head>
+<body>
+<div id="game">
+  
+  <!-- Top left thing where cards come from -->
+  <div id="deck">
+    <div id="boxcover"></div>
+    <div id="hand"></div>
+  </div>
+
+  <!-- Top right thing where you have 4 slots you stuff cards in to win -->
+  <div id="slots">
+    <div id="slot1"></div>
+    <div id="slot2"></div>
+    <div id="slot3"></div>
+    <div id="slot4"></div>
+  </div>
+
+  <!-- Bottom 7 aggrevating stacks where you shuffle shiz-->
+  <div id="stacks">
+    <div id="stack1"></div>
+    <div id="stack2"></div>
+    <div id="stack3"></div>
+    <div id="stack4"></div>
+    <div id="stack5"></div>
+    <div id="stack6"></div>
+    <div id="stack7"></div>
+  </div>
+
+</div>
+
+<div id="btns">
+  <button id="restart">New game</button>
+</div>
+
+<script>
+$(function() {
+  var u = new Ui();
+  u.restart();
+  $('#restart').click(function() {
+    u.restart();
+  });
+});
+</script>
+
+</body>
+</html>
