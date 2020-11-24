@@ -61,7 +61,8 @@ button {
  */
 
 .card {
-  font-size: 120px;
+  font-size: 95px;
+  line-height: 100px;
   float: left;
   background-color: #fff;
   text-align: center;
@@ -70,8 +71,8 @@ button {
   height: 105px;
   font-family: monospace;
   border: #000 1px solid;
-  cursor: default;
-  z-index: 9001;
+  cursor: pointer;
+  z-index: 9001; /* lol */
 }
 
 .spades, .clubs {
